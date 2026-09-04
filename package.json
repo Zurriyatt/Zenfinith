@@ -2,12 +2,20 @@
   "name": "zenfinith",
   "version": "0.1.0",
   "private": true,
+  "allowScripts": {
+    "@prisma/engines": "postinstall",
+    "prisma": "preinstall",
+    "sharp": "install",
+    "unrs-resolver": "postinstall"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
+  
+  
   "dependencies": {
     "@base-ui/react": "^1.6.0",
     "@fingerprintjs/fingerprintjs": "^5.2.0",
