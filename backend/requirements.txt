@@ -1,6 +1,6 @@
-django
-gunicorn
-psycopg2-binary
-python-dotenv
-dj-database-url
-django-cors-headers
+  django
+  gunicorn
+  psycopg2-binary
+  python-dotenv
+  dj-database-url
+  django-cors-headers
