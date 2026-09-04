@@ -38,7 +38,7 @@ export default function ProductPage() {
     const [recommendations, setRecommendations] = useState<Product[]>([]);
 
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/products/recommendations/${product.id}/`)
+        fetch(`https://zenfinith-backend-63d28.containers.snapdeploy.app/api/products/recommendations/${product.id}/`)
             .then((res) => res.json()).catch(err=>{toast.error("Recommendations not available!")})
             .then((data) => {
                 setRecommendations(data);
