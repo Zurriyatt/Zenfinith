@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/src/generated/prisma
+
+# Python / Django
+backend/venv/
+__pycache__/
+*.py[cod]
+*.sqlite3
+backend/*.sqlite3
+backend/config/__pycache__/
+backend/products/__pycache__/

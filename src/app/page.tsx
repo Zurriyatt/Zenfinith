@@ -1,65 +1,98 @@
-import Image from "next/image";
+"use client";
 
+import Image from "next/image";
+import { motion } from "motion/react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import Footer from "@/components/Footer";
+import AboutUs from "@/components/Home/About";
+import CategoryShowcase from "@/components/Home/ProductShowCase";
+import Link from "next/link";
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <section
+        className="relative rounded-2xl overflow-hidden bg-linear-to-br from-bgPrimary to-bgSecondary border border-border h-[78vh]
+max-h-190 
+min-h-155
+ w-[97vw] flex items-center"
+      >
+        {/* ✅ Background Image - Full bleed with overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/assets/hero-entry.png"
+            alt="Hero background with products"
+            fill
+            className="object-cover object-left drop-shadow-2xl"
+            priority
+          />
+          {/* ✅ Dark overlay for text readability */}
+          <div className="absolute inset-0 from-black/5 via-transparent to-white/15" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        {/* ✅ Content - Right aligned with padding */}
+        <div
+          className="relative z-20 w-sm mr-15 max-w-xxl px-6 md:px-12 ml-auto  text-left bg-bgSecondary/10 to bg-Secondary/15
+backdrop-blur-md
+border-white/20
+border
+
+rounded-3xl
+p-10"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-textPrimary text-sm font-medium mb-4">
+              ✦ New Collection
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-4xl md:text-6xl font-bold text-textPrimary"
           >
-            Documentation
-          </a>
+            Discover Everything
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-textPrimary/80 text-lg mt-4 max-w-lg "
+          >
+            Premium tech, fashion, and everyday essentials — curated for modern
+            living.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <Link
+              href={"/collections"}
+              className="flex justify-center items-center ease-in"
+            >
+              <Button className="mt-6 bg-primary hover:bg-bgPrimary hover:text-textPrimary text-primary-foreground px-8 group cursor-pointer ease-in ">
+                Explore Collection
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+          </motion.div>
         </div>
-      </main>
-    </div>
+      </section>
+      <section className="w-[97vw] overflow-x-auto mt-24 ">
+        <CategoryShowcase />
+      </section>
+
+      <AboutUs />
+
+      <Footer />
+    </>
   );
 }
