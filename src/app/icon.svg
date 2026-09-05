@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&amp;display=swap');
+      .z-mark {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-weight: 600;
+        fill: #B69A68;
+      }
+    </style>
+  </defs>
+
+  <!-- Crisp Light Cream Background -->
+  <rect width="512" height="512" rx="115" fill="#181818"/>
+
+  <!-- Centered Serif "Z" -->
+  <text x="256" y="375" text-anchor="middle" font-size="390" class="z-mark">Z</text>
+</svg>
