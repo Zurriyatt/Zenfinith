@@ -13,7 +13,7 @@ import { Star } from "lucide-react";
 export default function ProductClient({id}:{id:string}) {
     const [rating, setRating] = useState(0);
     const [ratingLoading, setRatingLoading] = useState(false);
-    const router = useRouter(); // ✅ for Buy Now navigation
+    const router = useRouter(); // ✅ for Buy Now navigation  .
     const products = useProducts() ?? [];
     const product = products.find((p) => p.id === id);
 

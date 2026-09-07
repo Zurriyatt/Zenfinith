@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from .models import Product
+from django.db import connection
 
 
 def productList(request):
@@ -37,3 +38,11 @@ def recommend_products(request, product_id):
     ]
 
     return JsonResponse(data, safe=False)
+
+def health_check(request):
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT 1")
+        return JsonResponse({"status": "ok"})
+    except Exception as e:
+        return JsonResponse({"status": "error", "message": str(e)}, status=500)

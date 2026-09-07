@@ -282,12 +282,12 @@ export default function CheckoutPage() {
             </h2>
 
             {/* Coupon */}
-            <div>
+            <div className = "flex flex-col justify-center items-start">
               <label className="text-sm font-medium text-textPrimary/70 mb-2 flex items-center gap-2">
                 <Tag className="w-4 h-4" />
                 Discount Code
               </label>
-              <div className="flex gap-2">
+              <div className="flex gap-2 sm:flex-row flex-col">
                 <input
                   type="text"
                   value={couponCode}
