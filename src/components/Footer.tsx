@@ -175,7 +175,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Zenfinith. All rights reserved.
           </p>
           <p className="flex items-center gap-1">
-            Built with ❤️ by{" "}
+            Built and led by{" "}
             <a
               href="https://github.com/Zurriyatt/Zurriyatt"
               target="_blank"

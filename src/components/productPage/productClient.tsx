@@ -10,7 +10,7 @@ import Link from "next/link";
 import { Product } from "@/lib/products";
 import ProductCard from "@/components/collections/ProductCard";
 import { Star } from "lucide-react";
-export default function ProductClient({id}:{id:string}) {
+export default function ProductClient({ id }: { id: string }) {
     const [rating, setRating] = useState(0);
     const [ratingLoading, setRatingLoading] = useState(false);
     const router = useRouter(); // ✅ for Buy Now navigation  .
@@ -37,7 +37,10 @@ export default function ProductClient({id}:{id:string}) {
 
     useEffect(() => {
         fetch(`https://zenfinithbackend-kl5orses.b4a.run/api/products/recommendations/${product.id}/`)
-            .then((res) => res.json()).catch(err=>{toast.error("Recommendations not available!")})
+            .then((res) => res.json())
+            .catch((err) => {
+                toast.error("Recommendations not available!");
+            })
             .then((data) => {
                 setRecommendations(data);
             })
